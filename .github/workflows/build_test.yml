@@ -2,28 +2,27 @@ name: Build and test
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout branch
-      uses: actions/checkout@v4
-    - name: Use Node.js v20
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20.x
-        cache: 'npm'
-    - name: Install modules
-      run: npm install
-    - name: Start Backend
-      run: npm run start-be &
-    - name: Start Frontend
-      run: npm run start-fe &
-    - name: Execute UI tests
-      run: npm start test:ui
+      - name: Checkout branch
+        uses: actions/checkout@v4
+      - name: Use Node.js v20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: "npm"
+      - name: Install modules
+        run: npm install
+      - name: Start Backend
+        run: npm run start-be &
+      - name: Start Frontend
+        run: npm run start-fe &
+      - name: Execute UI tests
+        run: npm run test:ui
