@@ -23,8 +23,8 @@ jobs:
       - name: Install Playwright
         run: npx playwright install
       - name: Start Backend
-        run: npm run server
+        run: npm run start-be &
       - name: Start Frontend
-        run: npm run start
+        run: npm run start-fe &
       - name: Execute UI tests
-        run: npm run test
+        run: npm run test:ui
